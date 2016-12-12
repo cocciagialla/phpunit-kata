@@ -1,12 +1,10 @@
-- Install composer
-- Composer require phpunit
-- "autoload": {
-      "psr-4": { "": "src/" }
-    }
-- Always write tests before code
+- Install composer if you haven't it;
+- run `composer install`
+- Always write tests before code!
 
-- vendor/bin/phpunit --color tests/
-- vendor/bin/phpunit --coverage-html coverage tests/
+To execute tests and coverage:
+- `vendor/bin/phpunit --color tests/`
+- `vendor/bin/phpunit --coverage-html coverage tests/`
 
 **FizzBuzz**
 
@@ -39,26 +37,26 @@ Write a “template engine” to transform template strings, “Hello {name}” 
 - Put code in a separate folder. For example under /TemplateEngine
 
 - Should evaluate template single variable expression:
-  - mapOfVariables.put(“name”,”Cenk”);
-  - templateEngine.evaluate(“Hello {name}”, mapOfVariables);
+  - `mapOfVariables.put(“name”,”Cenk”);`
+  - `templateEngine.evaluate(“Hello {name}”, mapOfVariables);`
   - should evaluate to “Hello Cenk”
 
 - Should evaluate template with multiple expressions:
-  - mapOfVariables.put(“firstName”,”Cenk”);
-  - mapOfVariables.put(“lastName”,”Civici”);
-  - templateEngine.evaluate(“Hello {firstName} {lastName}”, mapOfVariables);
+  - `mapOfVariables.put(“firstName”,”Cenk”);`
+  - `mapOfVariables.put(“lastName”,”Civici”);`
+  - `templateEngine.evaluate(“Hello {firstName} {lastName}”, mapOfVariables);`
   - should evaluate to “Hello Cenk Civici”
   
 - Should evaluate template with repeated expressions:
-  - mapOfVariables.put(“firstName”,”Cenk”);
-  - mapOfVariables.put(“lastName”,”Civici”);
-  - templateEngine.evaluate(“Hello {firstName} {lastName}. Your name is {firstName}”, mapOfVariables);
+  - `mapOfVariables.put(“firstName”,”Cenk”);`
+  - `mapOfVariables.put(“lastName”,”Civici”);`
+  - `templateEngine.evaluate(“Hello {firstName} {lastName}. Your name is {firstName}”, mapOfVariables);`
   - should evaluate to “Hello Cenk Civici. Your name is Cenk”  
 
 - Should give error if template variable does not exist in the map:
   - map empty
-  - templateEngine.evaluate(“Hello {firstName} “, mapOfVariables);
+  - `templateEngine.evaluate(“Hello {firstName} “, mapOfVariables);`
   - should throw MissingValueException
 
 - Should accept external template file from db (assume to use a TemplateDAO):
-  - templateEngine.evaluateFromDB(templateFileName, mapOfVariables);
+  - `templateEngine.evaluateFromDB(templateFileName, mapOfVariables);`
